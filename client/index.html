@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Welcome to HTML Generator App!</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+  <h1>Login to your Account</h1>
+  <form id="login">
+    <label for="username">Username</label><br>
+    <input type=text id="username" name="username"><br>
+    <label for="password">Password</label><br>
+    <input type="password" id="password" name="password"><br>
+  </form>
+
+  <input type="reset" form="login">
+  <button id="submitLogin">Login</button>
+  <script>
+    $(document).ready(() => {
+      $("#submitLogin").click(() => {
+        console.log("clicked");
+      });
+    });
+  </script>
+</body>
+</html>
+<!-- nov 3, 2019 // day 27 -->
