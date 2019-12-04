@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Welcome to HTML Generator App!</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/core.min.js" integrity="sha256-hV6Ff1ZbnLObO8BWHPZs1oA3aPZkX4bnnEKO4nX1sm0=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/md5.min.js" integrity="sha256-pMgPw2sArXEcjAzvhVgWZ4iS4Jm3NKrLG0mFWdrUwCE=" crossorigin="anonymous"></script>
 <body>
@@ -26,7 +26,7 @@
 
       $("#submitLogin").click(() => {
         let username = $("#username").val();
-        let username = $("#password").val();
+        let password = $("#password").val();
 
         if(username === "" || username === " ") {
           $("#error").text("please type in your username");
@@ -39,16 +39,13 @@
         // structure of login package
         const loginData = {
           username: username,
-          password: (CryptoJS.MD5(password)).toString()
+          password: CryptoJS.MD5(password).toString()
         };
 
         $.post("http://localhost:3000/login", loginData, (data) => {
           console.log("The server has responded!");
-        })
-        
-
-
-
+        });
+      
       });
     });
   </script>
