@@ -18,6 +18,22 @@
     <input type="password" id="password" name="password"><br>
   </form>
 
+  <h2>Register</h2>
+  <p id="register-error"></p>
+  <form id="register">
+    <label>First Name:</label><br>
+    <input type="text" id="fname" name="fname"><br>
+    <label>Last Name:</label><br>
+    <input type="text" id="lname" name="lname"><br>
+    <label for="username-register">User Name:</label><br>
+    <input type="text" id="username-register" name="username"><br>
+    <label>Email:</label><br>
+    <input type="email" id="email" name="email"><br>
+    <label for="password-register">Password:</label><br>
+    <input type="password" id="password-register" name="password"><br>
+
+  </form>
+
   <input type="reset" form="login">
   <button id="submitLogin">Login</button>
   <script>
@@ -38,6 +54,7 @@
 
         // structure of login package
         const loginData = {
+          type: "login",
           username: username,
           password: CryptoJS.MD5(password).toString()
         };
@@ -48,6 +65,16 @@
           console.log("The server has responded!");
         });
       
+      });
+      
+      $("#submitLogin").click(() => {
+        const registerData = {
+          fname: $("#fname").val(),
+          lname: $("#lname").val(),
+          username: $("username-register").val(),
+          email: $("#email").val(),
+          password: $("password-register").val()
+        };
       });
     });
   </script>
